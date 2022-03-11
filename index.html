@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p12_js-efects</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        font-family: 'Roboto', sans-serif;
+    }
+    .container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+    }
+    #caixa1{
+        border: 2px solid white;
+        z-index: 10;
+        margin: auto;
+        display: flex;
+        position: relative;
+        top: -5%;
+        left: 5%;
+        background-color: coral;
+        color: darkcyan;
+        width: 50%;
+        height: 50vh;
+    }
+    #caixa2{
+        display: flex;
+        position: fixed;
+        border: 2px solid white;
+        z-index: 15;
+        top: 40vh;
+        left: 35%;
+        width: 50%;
+        height: 50vh; 
+        background-color: turquoise;
+        color: darkcyan;
+    }
+    #fxs{
+        padding: 25px;
+        position: absolute;
+        right: 0;
+    }
+    #fx{
+        padding: 25px;
+        position: absolute;
+        right: 0;
+    }
+    #menu_fade{
+        position: absolute;
+        margin: 40px;
+    }
+    #menu_slide{
+        position: absolute;
+        margin: 140px 0 0 40px;
+    }
+    #menu_slide li{
+        background-color: turquoise;
+        color: darkcyan;
+    }
+    #menu_fade li{
+        background-color: coral;
+        color: darkcyan;
+    }
+    #menu_fade li:hover, #caixa1:hover{
+        box-shadow: 10px 10px turquoise;
+    }
+    #menu_slide li:hover, #caixa2:hover{
+        box-shadow: 10px 10px coral;
+    }   
+    ul{
+        position: absolute;
+        margin: 40px;
+    }
+    ul li{
+        display: inline;
+        list-style-type: none;
+        padding: 20px;
+    }
+    ul li:hover, #caixa1:hover{
+        box-shadow: 10px 10px turquoise;
+    }
+    #fx:hover{
+        color: coral;
+        background-color: darkcyan;
+    }
+    #fxs:hover{
+        color: turquoise;
+        background-color: darkcyan;
+    }
+    h2{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<script>
+    $(document).ready(function(){
+        $("#fo, #fx").click(function(){
+                $("#caixa1").fadeOut();
+            });
+            $("#fi").click(function(){
+                $("#caixa1").fadeIn();
+            });
+            $("#ft").click(function(){
+                $("#caixa1").fadeToggle();
+            })
+            $("#su, #fxs").click(function(){
+                $("#caixa2").slideUp();
+            });
+            $("#sd").click(function(){
+                $("#caixa2").slideDown();
+            });
+            $("#st").click(function(){
+                $("#caixa2").slideToggle();
+            });
+    });
+</script>
+</head>
+<body>
+    <div class="container">
+        <ul id="menu_fade">
+            <li id="fi">Fade In</li>
+            <li id="fo">Fade Out</li>
+            <li id="ft">Fade Toggle</li>
+        </ul>
+        <div id="caixa1">
+            <p id="fx">x</p>
+            <h2>Hola Fade</h2>
+        </div>
+        <ul id="menu_slide">
+            <li id="sd">Slide Down</li>
+            <li id="su">Slide Up</li>
+            <li id="st">Slide Toggle</li>
+        </ul>
+        <div id="caixa2">
+            <p id="fxs">x</p>
+            <h2>Hola Slide</h2>
+        </div>
+    </div>
+</body>
+</html>
